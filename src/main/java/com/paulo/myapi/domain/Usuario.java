@@ -24,9 +24,11 @@ public class Usuario implements Serializable {
 	private String nome;
 	
 	@NotEmpty(message = "Campo LOGIN é mandatório")
+	@Length(min = 3, max = 100, message = "O nome deve ter entre 3 e 100 caracteres")
 	private String login;
 	
 	@NotEmpty(message = "Campo SENHA é mandatório")
+	@Length(min = 3, max = 100, message = "O nome deve ter entre 3 e 100 caracteres")
 	private String senha;
 
 	public Usuario() {
