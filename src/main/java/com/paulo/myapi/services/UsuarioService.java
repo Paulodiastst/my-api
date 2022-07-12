@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.paulo.myapi.domain.Usuario;
@@ -25,6 +24,14 @@ public class UsuarioService {
 
 	public List<Usuario> findAll() {
 		return repository.findAll();
+	}
+
+	public Usuario Upadate(Integer id, Usuario obj) {
+		Usuario newObj = findById(id);
+		newObj.setNome(obj.getNome());
+		newObj.setLogin(obj.getLogin());
+		newObj.setSenha(obj.getSenha());
+		return repository.save(newObj);
 	}
 
 }
